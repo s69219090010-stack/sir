@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 3 พื้นฐานภาษา HTML5 และการจัดการแท็ก</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson03.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 3</span>
+        <h1>พื้นฐานภาษา HTML5 และการจัดการแท็ก (HTML5 Fundamentals & Tags)</h1>
+        <hr class="title-line">
+
+        <!-- 1. พื้นฐานและโครงสร้างไฟล์มาตรฐาน -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-brands fa-html5"></i> 1. พื้นฐานและโครงสร้างไฟล์มาตรฐาน (HTML5 Basics & Structure)
+            </div>
+            
+            <p class="content">
+                <strong>HTML5:</strong> ทำหน้าที่เป็นเสาเข็ม/โครงสร้างหลักของเว็บไซต์ (เปรียบเหมือนโครงสร้างบ้าน) เวอร์ชันปัจจุบันรองรับมัลติมีเดีย (Video/Audio) โดยไม่ต้องใช้ Plugin และสนับสนุน Semantic Tags ซึ่งส่งผลดีต่อ SEO และ Screen Reader (Accessibility)
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>โครงสร้างมาตรฐาน 3 ส่วนหลัก:</strong></div>
+            <ul class="definition-list content">
+                <li><strong>&lt;!DOCTYPE html&gt; &amp; &lt;html&gt;:</strong> ประกาศใช้มาตรฐาน HTML5 ไว้บรรทัดแรกสุด และใช้ &lt;html&gt; ล้อมรั้วขอบเขตเว็บทั้งหมด (ระบุภาษาหลักได้ เช่น &lt;html lang="th"&gt;)</li>
+                <li><strong>&lt;head&gt;:</strong> ส่วนควบคุมหลังบ้าน เก็บข้อมูลเชิงเทคนิคที่ไม่แสดงผลบนหน้าจอ เช่น การเชื่อมโยงไฟล์ CSS และมีแท็ก &lt;title&gt; สำหรับแสดงชื่อหน้าเว็บบนแท็บบราวเซอร์และหน้า Search Engine</li>
+                <li><strong>&lt;body&gt;:</strong> พื้นที่ใช้สอยหลัก แสดงผลข้อมูลทั้งหมดให้ผู้ใช้งานมองเห็น (ข้อความ รูปภาพ ปุ่มกด ฯลฯ)</li>
+            </ul>
+
+            <!-- ตัวอย่างโครงสร้าง HTML -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- โครงสร้างพื้นฐานของ HTML5 --&gt;</span><br>
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html lang="th"&gt;<br>
+                &nbsp;&nbsp;&lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ชื่อหน้าเว็บ&lt;/title&gt;<br>
+                &nbsp;&nbsp;&lt;/head&gt;<br>
+                &nbsp;&nbsp;&lt;body&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello World&lt;/h1&gt;<br>
+                &nbsp;&nbsp;&lt;/body&gt;<br>
+                &lt;/html&gt;
+            </div>
+        </div>
+
+        <!-- 2. การจัดการข้อความด้วย Tag และ Attribute -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-font"></i> 2. การจัดการข้อความด้วย Tag และ Attribute
+            </div>
+            
+            <p class="content">
+                <strong>Heading Tags (&lt;h1&gt; ถึง &lt;h6&gt;):</strong> แท็กพาดหัวข่าว จัดลำดับความสำคัญของเนื้อหา โดย &lt;h1&gt; ใหญ่และสำคัญที่สุด (ควรมีเพียง 1 ตัวต่อหน้าเพจ เพื่อผลดีต่อ SEO) ลดหลั่นไปจนถึง &lt;h6&gt;
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>ย่อหน้าและการขึ้นบรรทัดใหม่:</strong></div>
+            <ul class="definition-list content">
+                <li><strong>&lt;p&gt; (Paragraph):</strong> ใช้จัดกลุ่มข้อความย่อหน้า บราวเซอร์จะเว้นระยะห่าง (Margin) บน-ล่างให้อัตโนมัติ</li>
+                <li><strong>&lt;br&gt; (Line Break):</strong> แท็กบังคับขึ้นบรรทัดใหม่ทันที (เนื่องจากการกด Enter บนแป้นพิมพ์ บราวเซอร์จะนับเป็นช่องว่างเพียง 1 ช่อง)</li>
+            </ul>
+        </div>
+
+        <!-- 3. การสร้างรายการข้อมูล -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-list-check"></i> 3. การสร้างรายการข้อมูล (Lists)
+            </div>
+            <p class="content">
+                จัดกลุ่มข้อมูลให้เป็นหมวดหมู่ อ่านง่าย และช่วยจัดโครงสร้าง Semantic HTML ให้ SEO/Screen Reader:
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>Unordered List (&lt;ul&gt;):</strong> รายการแบบไม่มีลำดับ (ไม่เน้นก่อน-หลัง) ใช้จุด Bullet (&lt;li&gt;) นำหน้า</li>
+                <li>
+                    <strong>Ordered List (&lt;ol&gt;):</strong> รายการแบบมีลำดับ (ขั้นตอนสลับไม่ได้) บราวเซอร์จะรันตัวเลขให้อัตโนมัติ ปรับแต่งได้ด้วย Attribute:
+                    <div style="padding-left: 15px; margin-top: 5px;">
+                        • <code>type</code>: กำหนดรูปแบบตัวเลข/ตัวอักษร (เช่น A, a, I, 1)<br>
+                        • <code>start</code>: กำหนดตัวเลขเริ่มต้น (เช่น start="5")<br>
+                        • <code>reversed</code>: แสดงตัวเลขเรียงนับถอยหลัง
+                    </div>
+                </li>
+                <li><strong>Nested Lists:</strong> การสร้างรายการซ้อนกันในหมวดหมู่ย่อย (กฎสำคัญ: รายการย่อยต้องอยู่ภายในแท็ก &lt;li&gt; ของรายการหลักเสมอ)</li>
+            </ul>
+        </div>
+
+        <!-- 4. ส่วนขยายใน VS Code และ Local Server -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-plug"></i> 4. ส่วนขยาย (Extensions) ใน VS Code และ Local Server
+            </div>
+            
+            <p class="content">
+                ช่วยเพิ่มประสิทธิภาพในการพัฒนาและลดข้อผิดพลาด:
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>Code Formatting & Syntax:</strong>
+                    <div style="padding-left: 15px;">
+                        - <em>Prettier:</em> จัดรูปแบบและเว้นวรรคโค้ดให้อัตโนมัติเมื่อบันทึกไฟล์<br>
+                        - <em>Error Lens:</em> แสดงข้อความแจ้งเตือนจุดที่พิมพ์โค้ดผิดพลาดที่ท้ายบรรทัดทันที
+                    </div>
+                </li>
+                <li><strong>HTML Tag Automation:</strong>
+                    <div style="padding-left: 15px;">
+                        - <em>Auto Rename Tag:</em> เปลี่ยนชื่อแท็กปิดให้อัตโนมัติเมื่อแก้ไขแท็กเปิด<br>
+                        - <em>Auto Close Tag:</em> เติมแท็กปิดให้อัตโนมัติ
+                    </div>
+                </li>
+                <li><strong>Live Server:</strong> ช่วยจำลองสภาพแวดล้อม Local Server (HTTP Protocol: <code>http://localhost</code>) เหมือนการรันบนอินเทอร์เน็ตจริง ซึ่งแม่นยำกว่าการเปิดไฟล์ตรงๆ (File Protocol: <code>file:///</code>)</li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> ข้อสังเกตการติดตั้งส่วนขยาย
+                </div>
+                <div class="content">
+                    ควรเลือกติดตั้งส่วนขยายที่มี <strong>Verified Publisher (เครื่องหมายติ๊กถูก)</strong> และมียอดดาวน์โหลดสูงเพื่อความปลอดภัยและเสถียรภาพในการใช้งาน
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson02.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 2)
+            </a>
+            <a href="lesson04.html" class="nav-button next">
+                บทถัดไป (บทที่ 4) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

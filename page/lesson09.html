@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่9 เรื่อง พื้นฐานภาษา JavaScript และ DOM Manipulation</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson09.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทเรียนที่9 </span>
+        <h1>พื้นฐานภาษา JavaScript และ DOM Manipulation</h1>
+        <hr class="title-line">
+
+        <!-- 1. บทบาทและพื้นฐานของภาษา JavaScript -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-brands fa-js"></i> 1. บทบาทและพื้นฐานของภาษา JavaScript
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>ภาษา JavaScript:</strong> ทำหน้าที่สร้างการโต้ตอบ (Interactivity) และไดนามิกให้กับหน้าเว็บ (เปรียบเสมือนระบบประสาทและกล้ามเนื้อที่ทำให้บ้านเคลื่อนไหวได้)</li>
+                <li>
+                    <strong>ตำแหน่งการเขียนโค้ด:</strong>
+                    <div style="padding-left: 15px; margin-top: 5px;">
+                        • <code>Internal JS</code>: เขียนภายในแท็ก <code>&lt;script&gt;</code> ในไฟล์ HTML<br>
+                        • <code>External JS</code>: แยกไฟล์เป็น <code>.js</code> แล้วเชื่อมโยงผ่าน <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
+                    </div>
+                </li>
+                <li><strong>การแสดงผลขั้นพื้นฐาน:</strong> ใช้คำสั่ง <code>console.log()</code> เพื่อตรวจสอบสถานะการทำงาน และ <code>alert()</code> เพื่อแสดงกล่องข้อความแจ้งเตือนผู้ใช้</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ดพื้นฐาน -->
+            <div class="code-box">
+                <span class="code-comment">// ตัวอย่างการใช้งาน External JS และคำสั่งแสดงผล</span><br>
+                console.log("Hello, JavaScript!");<br>
+                alert("ยินดีต้อนรับสู่บทเรียน JavaScript");
+            </div>
+        </div>
+
+        <!-- 2. ตัวแปร ชนิดข้อมูล และตัวดำเนินการ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-code"></i> 2. ตัวแปร ชนิดข้อมูล และตัวดำเนินการ (Variables &amp; Data Types)
+            </div>
+            
+            <div class="content" style="margin-top: 10px;"><strong>การประกาศตัวแปร:</strong></div>
+            <ul class="definition-list content">
+                <li><code>let</code>: ใช้ประกาศตัวแปรที่ <strong>สามารถเปลี่ยนค่าได้</strong> ในภายหลัง</li>
+                <li><code>const</code>: ใช้ประกาศค่าคงที่ <strong>ห้ามเปลี่ยนค่า</strong> (แนะนำให้ใช้เป็นค่าเริ่มต้นหากไม่มีการแก้ไขค่า)</li>
+                <li><code>var</code>: รูปแบบเก่า (ไม่นิยมใช้ในปัจจุบันเนื่องจากปัญหา Scope)</li>
+            </ul>
+
+            <ul class="definition-list content" style="margin-top: 10px;">
+                <li><strong>ชนิดข้อมูลพื้นฐาน (Data Types):</strong> ข้อความ (<code>String</code>), ตัวเลข (<code>Number</code>), ค่าความจริง (<code>Boolean</code>: true/false), ค่าว่าง (<code>null</code>, <code>undefined</code>)</li>
+                <li><strong>ตัวดำเนินการ (Operators):</strong> เครื่องมือคำนวณทางคณิตศาสตร์ (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) และการเปรียบเทียบค่า (<code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>)</li>
+            </ul>
+        </div>
+
+        <!-- 3. การควบคุมทิศทางและฟังก์ชัน -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-diagram-project"></i> 3. การควบคุมทิศทางและฟังก์ชัน (Control Flow &amp; Functions)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>เงื่อนไข (If-Else Statement):</strong> ใช้ตัดสินใจเลือกทำงานตามเงื่อนไข เช่น ตรวจสอบว่าผู้ใช้อายุเกิน 18 ปีหรือไม่ หรือตรวจสอบรหัสผ่าน</li>
+                <li><strong>การวนซ้ำ (Loops):</strong> ใช้สั่งให้เบราว์เซอร์ทำงานซ้ำๆ (เช่น <code>for loop</code> หรือ <code>while loop</code>) สำหรับการประมวลผลข้อมูลจำนวนมาก</li>
+                <li><strong>ฟังก์ชัน (Functions):</strong> การรวมชุดคำสั่งเข้าด้วยกันเพื่อให้นำกลับมาใช้ซ้ำได้ (Reusable Code) ประกาศด้วยคีย์เวิร์ด <code>function</code> และคืนค่าผลลัพธ์ผ่านคำสั่ง <code>return</code></li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ด Function -->
+            <div class="code-box">
+                <span class="code-comment">// ตัวอย่างการประกาศและการสร้างฟังก์ชัน</span><br>
+                function checkAge(age) {<br>
+                &nbsp;&nbsp;if (age &gt;= 18) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return "ผ่านการตรวจสอบ";<br>
+                &nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return "อายุไม่ถึงเกณฑ์";<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+        </div>
+
+        <!-- 4. DOM Manipulation และ Event Handling -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-hand-pointer"></i> 4. DOM Manipulation และ Event Handling
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>DOM (Document Object Model):</strong> โครงสร้างที่ JavaScript มององค์ประกอบ HTML บนหน้าเว็บเป็น Object</li>
+                <li><strong>การเข้าถึงและแก้ไข HTML:</strong> ใช้คำสั่ง เช่น <code>document.getElementById()</code> หรือ <code>document.querySelector()</code> เพื่อเข้าถึง และแก้ไขเนื้อหาผ่าน <code>.innerText</code>, <code>.innerHTML</code> หรือปรับสไตล์ CSS ผ่าน <code>.style</code></li>
+                <li><strong>การดักจับเหตุการณ์ (Event Handling):</strong> ตอบสนองต่อการกระทำของผู้ใช้ เช่น การกดปุ่ม (<code>click</code>), การพิมพ์ (<code>input</code>), หรือการเลื่อนเมาส์ (<code>mouseover</code>) ผ่านคำสั่ง <code>addEventListener()</code> เพื่อทำให้หน้าเว็บทำงานแบบ Interactive</li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> เทคนิคสำคัญของ Event Handling
+                </div>
+                <div class="content">
+                    การใช้ <code>addEventListener("click", function)</code> ช่วยแยกการทำงานของ JavaScript ออกจาก HTML ได้อย่างเป็นระเบียบ ทำให้จัดการโค้ดในโปรเจกต์ขนาดใหญ่ได้ง่ายขึ้น
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson08.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

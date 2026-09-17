@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 7 ระบบการเชื่อมโยง (Hyperlinks)</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson07.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 7</span>
+        <h1>ระบบการเชื่อมโยง (Hyperlinks)</h1>
+        <hr class="title-line">
+
+        <!-- 1. พื้นฐานและการใช้งานลิงก์ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-link"></i> 1. พื้นฐานและการใช้งานลิงก์ (&lt;a&gt; Tag &amp; href Attribute)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>แท็ก &lt;a&gt; (Anchor Tag):</strong> ใช้สำหรับสร้างไฮเปอร์ลิงก์เพื่อเชื่อมโยงเอกสารเว็บเพจเข้าด้วยกัน</li>
+                <li><strong>แอตทริบิวต์ href (Hypertext Reference):</strong> เป็นหัวใจสำคัญที่ใช้ระบุ URL หรือเส้นทางปลายทางที่ต้องการให้ลิงก์พาผู้ใช้ไป</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ดแท็ก <a> -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- โครงสร้างพื้นฐานการใช้งานแท็ก Anchor --&gt;</span><br>
+                &lt;a href="https://www.example.com"&gt;ข้อความลิงก์&lt;/a&gt;
+            </div>
+        </div>
+
+        <!-- 2. การอ้างอิงที่อยู่ไฟล์ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-folder-tree"></i> 2. การอ้างอิงที่อยู่ไฟล์ (Path Types)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>Relative Path (เส้นทางสัมพัทธ์):</strong> ใช้สำหรับเชื่อมโยงไฟล์ภายในเว็บไซต์เดียวกัน (Internal Link) โดยอ้างอิงจากตำแหน่งของไฟล์ปัจจุบัน เช่น <code>href="about.html"</code> หรือ <code>href="pages/contact.html"</code></li>
+                <li><strong>Absolute Path (เส้นทางสัมบูรณ์):</strong> ใช้สำหรับเชื่อมโยงไปยังเว็บไซต์ภายนอก (External Link) โดยระบุ URL แบบเต็มรูปแบบ เช่น <code>href="https://www.google.com"</code></li>
+            </ul>
+        </div>
+
+        <!-- 3. การควบคุมพฤติกรรมการเปิดลิงก์และ Anchor Link -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-up-right-from-square"></i> 3. การควบคุมพฤติกรรมการเปิดลิงก์และ Anchor Link
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>แอตทริบิวต์ target="_blank":</strong> บังคับให้เบราว์เซอร์เปิดลิงก์ปลายทางใน แท็บใหม่หรือหน้าต่างใหม่ นิยมใช้กับลิงก์ภายนอก เพื่อไม่ให้ผู้ใช้งานหลุดออกจากหน้าเว็บไซต์เดิม</li>
+                <li><strong>Anchor Link (การเลื่อนตำแหน่งภายในหน้าเพจ):</strong> ใช้เชื่อมโยงไปยังส่วนต่างๆ ของหน้าเพจเดียวกันผ่านการระบุ id เช่น <code>href="#section2"</code> เหมาะสำหรับหน้าเพจที่มีเนื้อหายาวมากๆ เพื่อช่วยข้ามไปยังส่วนที่ต้องการได้ทันที</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ด Target และ Anchor Link -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- เปิดในแท็บใหม่ --&gt;</span><br>
+                &lt;a href="https://www.google.com" target="_blank"&gt;ไปยัง Google&lt;/a&gt;<br><br>
+                <span class="code-comment">&lt;!-- ลิงก์ข้ามไปยังตำแหน่ง ID ภายในหน้าเดียวกัน --&gt;</span><br>
+                &lt;a href="#section2"&gt;ไปยังส่วนที่ 2&lt;/a&gt;
+            </div>
+        </div>
+
+        <!-- 4. การตกแต่งและสถานะของลิงก์ด้วย CSS -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-palette"></i> 4. การตกแต่งและสถานะของลิงก์ด้วย CSS (Pseudo-classes)
+            </div>
+            
+            <p class="content">
+                จัดการสถานะและวงจรชีวิตของลิงก์เพื่อเพิ่มการตอบสนอง (Interactive) และ UX ที่ดี:
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>:link:</strong> สไตล์ของลิงก์สถานะปกติที่ยังไม่เคยถูกคลิก</li>
+                <li><strong>:visited:</strong> สไตล์ของลิงก์ที่ผู้ใช้งานเคยคลิกเข้าไปแล้ว</li>
+                <li><strong>:hover:</strong> สไตล์เมื่อผู้ใช้นำเมาส์ไปวางเหนือลิงก์ (เช่น การเปลี่ยนสี หรือขีดเส้นใต้)</li>
+                <li><strong>:active:</strong> สไตล์ในขณะที่ผู้ใช้กำลังกดคลิกลิงก์อยู่</li>
+                <li><strong>การประยุกต์ทำปุ่มกด (Button):</strong> ใช้ CSS เปลี่ยนข้อความลิงก์ธรรมดาให้กลายเป็น "ปุ่มกด (Button)" ที่สวยงาม สื่อสารการใช้งานได้ชัดเจนขึ้น</li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> ลำดับการเขียน CSS Pseudo-classes (LVHA)
+                </div>
+                <div class="content">
+                    การเรียงลำดับ CSS Pseudo-classes ของลิงก์มีผลต่อการแสดงผล แนะนำให้จำกฎ <strong>LVHA</strong>: <code>:link</code> &rarr; <code>:visited</code> &rarr; <code>:hover</code> &rarr; <code>:active</code> เสมอ
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson06.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 6)
+            </a>
+            <a href="lesson08.html" class="nav-button next">
+                บทถัดไป (บทที่ 8) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

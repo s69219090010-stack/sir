@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 4 พื้นฐาน CSS, Box Model และ Layout Positioning</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson04.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 4</span>
+        <h1>พื้นฐาน CSS, Box Model และ Layout Positioning</h1>
+        <hr class="title-line">
+
+        <!-- 1. พื้นฐาน CSS, การเชื่อมต่อ และ Selector -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-brands fa-css3-alt"></i> 1. พื้นฐาน CSS, การเชื่อมต่อ และ Selector
+            </div>
+            
+            <p class="content">
+                <strong>แนวคิด CSS:</strong> CSS ทำหน้าที่เหมือนการ "ตกแต่งภายใน/ภายนอกบ้าน" แยกส่วนกับโครงสร้าง HTML ชัดเจน ช่วยให้แก้ไขสไตล์ของหลายๆ หน้าเว็บได้พร้อมกันในจุดเดียว
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>รูปแบบการเชื่อมต่อหลัก:</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Internal (สไตล์ชีตภายใน):</strong> เขียนในแท็ก <code>&lt;style&gt;</code> ภายใน <code>&lt;head&gt;</code> เหมาะกับหน้าเว็บขนาดเล็ก หรือ Single Page ไม่สามารถแชร์ไปหน้าอื่นได้</li>
+                <li><strong>External (สไตล์ชีตภายนอก):</strong> สร้างไฟล์ .css แยก แล้วใช้แท็ก <code>&lt;link&gt;</code> ใน HTML เพื่อดึงสไตล์มาใช้ (เป็นมาตรฐานระดับมืออาชีพ)</li>
+            </ul>
+
+            <div class="content" style="margin-top: 10px;"><strong>CSS Selectors (การชี้เป้าหมาย):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Tag Selector:</strong> พิมพ์ชื่อแท็กตรงๆ (เช่น <code>p</code>) ส่งผลต่อแท็กนั้นทุกตัวในหน้า (ระดับความเฉพาะเจาะจงกว้างสุด)</li>
+                <li><strong>Class Selector:</strong> ใช้จุดนำหน้า (เช่น <code>.btn</code>) ใช้ซ้ำกี่ครั้งก็ได้ และใช้กับแท็กใดก็ได้ นิยมใช้กับกลุ่มปุ่มหรือการ์ดสินค้า</li>
+                <li><strong>ID Selector:</strong> ใช้เครื่องหมายแฮชแท็กนำหน้า (เช่น <code>#navbar</code>) ห้ามใช้ซ้ำในหน้าเดียวกัน (เหมือนเลขบัตรประชาชน) ใช้กับส่วนประกอบหลักที่มีชิ้นเดียว</li>
+            </ul>
+
+            <!-- ตัวอย่างการใช้งาน CSS Selector -->
+            <div class="code-box">
+                <span class="code-comment">/* ตัวอย่างการเขียน CSS Selectors */</span><br>
+                p { color: #333; }            <span class="code-comment">/* Tag Selector */</span><br>
+                .btn { background: #087ff5; } <span class="code-comment">/* Class Selector */</span><br>
+                #navbar { width: 100%; }      <span class="code-comment">/* ID Selector */</span>
+            </div>
+        </div>
+
+        <!-- 2. ระบบกล่อง (Box Model) -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-cube"></i> 2. ระบบกล่อง (Box Model)
+            </div>
+            
+            <p class="content">
+                บราวเซอร์มองทุกองค์ประกอบบนหน้าเว็บเป็น "กล่องสี่เหลี่ยม" ซ้อนกัน 4 ชั้น (เรียงจากในไปนอก):
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>Content (Width/Height):</strong> เนื้อหาหลัก (ข้อความ/รูปภาพ) กำหนดขนาดได้ทั้งพิกเซล (px) หรือเปอร์เซ็นต์ (%)</li>
+                <li><strong>Padding (พื้นที่ใน):</strong> ระยะห่างภายในกล่อง (จากเนื้อหาถึงเส้นขอบ) เปรียบเหมือนพลาสติกกันกระแทก ช่วยให้กล่องดูโปร่งสบาย</li>
+                <li><strong>Border (เส้นขอบ):</strong> กรอบ/กำแพงกั้นระหว่างพื้นที่ภายในและภายนอก ปรับความหนา สี และสไตล์ได้</li>
+                <li><strong>Margin (พื้นที่นอก):</strong> ระยะห่างภายนอกกล่อง เปรียบเหมือน Social Distancing ช่วยผลักกล่องอื่นออกไป ไม่ให้เบียดชิดกัน</li>
+            </ul>
+        </div>
+
+        <!-- 3. การจัดตำแหน่ง (Layout Positioning) -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-table-cells-large"></i> 3. การจัดตำแหน่ง (Layout Positioning)
+            </div>
+            <p class="content">
+                ตามปกติบราวเซอร์จะวางองค์ประกอบเรียงจากบนลงล่าง ซ้ายไปขวา (Normal Flow) จึงต้องใช้คำสั่ง CSS จัดระเบียบ:
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>การใช้ Display (พฤติกรรมกล่อง):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Block:</strong> จองพื้นที่เต็ม 100% ความกว้างบรรทัดเสมอ (เช่น <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>) ขึ้นบรรทัดใหม่ทุกครั้ง</li>
+                <li><strong>Inline:</strong> ใช้พื้นที่เท่าขนาดเนื้อหา สามารถวางเรียงต่อกันในบรรทัดเดียวได้ (เช่น <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>) แต่กำหนด Width/Height ไม่ได้</li>
+                <li><strong>Flex (Flexbox):</strong> มาตรฐานยุคใหม่ เปลี่ยนกล่องแม่เป็นโครงสร้างยืดหยุ่น จัดเรียง/กระจาย/จัดกึ่งกลางกล่องลูกได้ง่ายดาย</li>
+            </ul>
+
+            <div class="content" style="margin-top: 10px;"><strong>การใช้ Position (การกำหนดพิกัด X, Y):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Relative:</strong> เคลื่อนย้ายโดยอ้างอิงจาก จุดเดิม ที่เคยอยู่ (ช่องว่างเดิมยังคงถูกเว้นไว้)</li>
+                <li><strong>Absolute:</strong> ดึงกล่อง หลุดออกจากวงโคจร นำไปวางแปะทับพิกัดใดก็ได้ของกล่องแม่ (เช่น ป้าย Badge แจ้งเตือน)</li>
+                <li><strong>Fixed:</strong> ดึงกล่องออกมา ยึดติดกับหน้าจอ (Viewport) ไม่ว่าจะเลื่อน Scroll ไปไหนก็ไม่หาย นิยมใช้ทำ Sticky Navbar หรือปุ่ม Chat</li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> เทคนิคสำคัญของ Position
+                </div>
+                <div class="content">
+                    หากต้องการใช้งาน <code>position: absolute</code> ให้ได้ผลลัพธ์ที่ถูกต้อง อย่าลืมกำหนด <code>position: relative</code> ที่กล่องแม่ เพื่อขีดขอบเขตอ้างอิงพิกัดเสมอ
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson03.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 3)
+            </a>
+            <a href="lesson05.html" class="nav-button next">
+                บทถัดไป (บทที่ 5) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

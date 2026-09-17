@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 6 การสร้างและตกแต่งตาราง (HTML Tables & Modern CSS)</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson06.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 6</span>
+        <h1>การสร้างและตกแต่งตาราง (HTML Tables & Modern CSS)</h1>
+        <hr class="title-line">
+
+        <!-- 1. โครงสร้างพื้นฐานของตาราง HTML -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-table"></i> 1. โครงสร้างพื้นฐานของตาราง HTML (Table Blueprint)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>&lt;table&gt;:</strong> แท็กสำหรับกำหนดขอบเขตทั้งหมดของตาราง เปรียบเสมือนโครงตู้หรือชั้นวางของ</li>
+                <li><strong>&lt;tr&gt; (Table Row):</strong> ใช้สำหรับสร้าง "แถวในแนวนอน" ของตาราง ข้อมูลตารางทั้งหมดต้องจัดวางภายในแถว <code>&lt;tr&gt;</code></li>
+                <li><strong>&lt;th&gt; (Table Header):</strong> เซลล์หัวข้อตาราง ข้อความภายในจะเป็นตัวหนาและจัดกึ่งกลางโดยอัตโนมัติ ช่วยสร้าง Semantic HTML และความชัดเจนของข้อมูล</li>
+                <li><strong>&lt;td&gt; (Table Data):</strong> เซลล์ข้อมูลทั่วไปภายในตาราง ข้อความจะชิดซ้ายโดยอัตโนมัติ</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ดตารางพื้นฐาน -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- โครงสร้างพื้นฐานของ HTML Table --&gt;</span><br>
+                &lt;table&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;หัวข้อ 1&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;หัวข้อ 2&lt;/th&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;ข้อมูล 1&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;ข้อมูล 2&lt;/td&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &lt;/table&gt;
+            </div>
+        </div>
+
+        <!-- 2. การควบรวมเซลล์และการจัดโครงสร้างระดับสูง -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-table-cells"></i> 2. การควบรวมเซลล์และการจัดโครงสร้างระดับสูง (Advanced HTML Cell)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>colspan (Column Span):</strong> ใช้สำหรับ "รวมเซลล์ในแนวนอน" (ผสานคอลัมน์) เช่น <code>colspan="2"</code> คือการรวม 2 คอลัมน์เข้าด้วยกัน</li>
+                <li><strong>rowspan (Row Span):</strong> ใช้สำหรับ "รวมเซลล์ในแนวตั้ง" (ผสานแถว) เช่น <code>rowspan="2"</code> คือการรวม 2 แถวเข้าด้วยกัน</li>
+            </ul>
+
+            <div class="content" style="margin-top: 10px;"><strong>โครงสร้างแบ่งส่วนตาราง (Table Semantic Structure):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>&lt;thead&gt;:</strong> ส่วนหัวของตาราง (เก็บ <code>&lt;th&gt;</code>)</li>
+                <li><strong>&lt;tbody&gt;:</strong> ส่วนเนื้อหาหลักของตาราง (เก็บ <code>&lt;td&gt;</code>)</li>
+                <li><strong>&lt;tfoot&gt;:</strong> ส่วนสรุปท้ายตาราง (เช่น ผลรวม หรือจำนวนทั้งหมด)</li>
+            </ul>
+        </div>
+
+        <!-- 3. การตกแต่งตารางด้วย CSS สมัยใหม่ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 3. การตกแต่งตารางด้วย CSS สมัยใหม่ (Modern CSS Table Styling)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>border-collapse: collapse;:</strong> รวมเส้นขอบของเซลล์ตารางที่ซ้อนกันให้เหลือเพียงเส้นเดียว ช่วยให้ตารางดูคมชัด ไม่เป็นเส้นคู่หนาๆ</li>
+                <li><strong>การจัดระยะห่าง (Padding):</strong> เพิ่มระยะห่างภายในเซลล์ด้วย CSS <code>padding</code> เพื่อไม่ให้ตัวอักษรเบียดชิดเส้นขอบตาราง</li>
+                <li><strong>Zebra Striping (ตารางสลับสี):</strong> ใช้ CSS Pseudo-class <code>:nth-child(even)</code> หรือ <code>:nth-child(odd)</code> ในการใส่สีพื้นหลังสลับแถว ช่วยให้ผู้ใช้งานกวาดสายตาอ่านข้อมูลจำนวนมากได้ง่ายขึ้น</li>
+                <li><strong>Hover Effect:</strong> ใช้ <code>tr:hover</code> เพื่อเปลี่ยนสีพื้นหลังของแถวเมื่อนำเมาส์ไปวาง ช่วยเพิ่มการโต้ตอบ (Interactive) และประสบการณ์ผู้ใช้ที่ดี (UX)</li>
+            </ul>
+
+            <!-- ตัวอย่าง CSS สำหรับตาราง -->
+            <div class="code-box">
+                <span class="code-comment">/* ตัวอย่างการตกแต่งตารางด้วย CSS */</span><br>
+                table { width: 100%; border-collapse: collapse; }<br>
+                th, td { padding: 12px; border: 1px solid #ddd; }<br>
+                tbody tr:nth-child(even) { background-color: #f9f9f9; } <span class="code-comment">/* Zebra Striping */</span><br>
+                tbody tr:hover { background-color: #f1f1f1; }           <span class="code-comment">/* Hover Effect */</span>
+            </div>
+        </div>
+
+        <!-- 4. ตารางแบบยืดหยุ่นและการจัดวาง -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-mobile-screen-button"></i> 4. ตารางแบบยืดหยุ่นและการจัดวาง (Responsive Tables)
+            </div>
+            
+            <p class="content">
+                <strong>Overflow Handling:</strong> ห่อหุ้มตารางไว้ใน <code>&lt;div class="table-responsive"&gt;</code> แล้วใช้ CSS <code>overflow-x: auto;</code> เพื่อให้ตารางบนหน้าจอขนาดเล็ก (สมาร์ตโฟน) สามารถเลื่อนขวา-ซ้าย (Horizontal Scroll) ได้ โดยไม่ทำให้เลย์เอาต์หลักของหน้าเว็บเบี้ยวหรือล้นจอ
+            </p>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> ข้อควรระวังการทำ Responsive Table
+                </div>
+                <div class="content">
+                    การใส่ <code>overflow-x: auto;</code> ต้องกำหนดไว้ที่ <strong>&lt;div&gt; กล่องแม่</strong> ที่ครอบตารางไว้เสมอ ไม่ควรกำหนดที่ตัวแท็ก <code>&lt;table&gt;</code> โดยตรง
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson05.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 5)
+            </a>
+            <a href="lesson07.html" class="nav-button next">
+                บทถัดไป (บทที่ 7) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

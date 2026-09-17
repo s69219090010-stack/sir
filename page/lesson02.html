@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 2 หลักการออกแบบและอัตลักษณ์ Visual</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson02.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 2</span>
+        <h1>หลักการออกแบบและอัตลักษณ์ Visual</h1>
+        <hr class="title-line">
+
+        <!-- 1. หลักการออกแบบและอัตลักษณ์ visual -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-palette"></i> 1. หลักการออกแบบและอัตลักษณ์ visual (Web Design Principles & Identity)
+            </div>
+            
+            <p class="content">
+                <strong>เป้าหมายหลัก:</strong> ไม่ใช่แค่ความสวยงาม แต่คือการสร้าง UI/UX เพื่อลด Bounce Rate และเพิ่ม Conversion Rate รวมถึงสร้างความน่าเชื่อถือให้แบรนด์
+            </p>
+
+            <div class="content" style="margin-top: 12px;"><strong>ทฤษฎีสี (Color Theory):</strong> ใช้สื่อสารอารมณ์และสะท้อนตัวตนของแบรนด์ (Brand Identity)</div>
+            <ul class="definition-list content">
+                <li><strong style="color: #087ff5;">สีน้ำเงิน:</strong> สื่อถึงความเชื่อมั่น มืออาชีพ (เช่น ธุรกิจ IT, ธนาคาร)</li>
+                <li><strong style="color: #e74c3c;">สีแดง:</strong> สื่อถึงความเร่งด่วน พลังงาน นิยมใช้กับปุ่ม Call-to-Action (CTA)</li>
+                <li><strong style="color: #27ae60;">สีเขียว:</strong> สื่อถึงธรรมชาติ ความปลอดภัย และสุขภาพ</li>
+                <li><strong style="color: #2c3e50;">สีดำ:</strong> สื่อถึงความหรูหรา พรีเมียม</li>
+            </ul>
+
+            <div class="content" style="margin-top: 12px;"><strong>การใช้ตัวอักษร (Typography):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Readability & Accessibility (A11y):</strong> เน้นอ่านง่าย และคำนึงถึงค่าอัตราส่วนความเปรียบต่าง (Contrast Ratio) ระหว่างตัวอักษรกับพื้นหลัง เพื่อผู้บกพร่องทางการมองเห็น</li>
+                <li><strong>Visual Hierarchy:</strong> การจัดลำดับสายตาผ่าน Size & Weight (หัวข้อใหญ่-หนากว่าเนื้อหา) และ Spacing / White Space (เว้นระยะห่างเพื่อลดความล้าสายตา)</li>
+            </ul>
+        </div>
+
+        <!-- 2. โครงสร้างและเลย์เอาต์มาตรฐาน -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-layer-group"></i> 2. โครงสร้างและเลย์เอาต์มาตรฐาน (Elements & Layout)
+            </div>
+            <p class="content">
+                ช่วยสร้าง Navigation Flow ให้ผู้ใช้เข้าถึงข้อมูลได้รวดเร็ว แบ่งออกเป็น 3 ส่วนหลัก:
+            </p>
+            <ol class="number-list content">
+                <li><strong>Header / Navigation Bar:</strong> ส่วนหัวของเว็บ ประกอบด้วย โลโก้, เมนูหลัก, ช่องค้นหา วางโครงสร้างตามหลัก Information Architecture (IA) เพื่อลดจำนวนคลิก</li>
+                <li><strong>Content Area:</strong> พื้นที่แสดงเนื้อหาหลัก (ข้อความ/รูปภาพ/วิดีโอ) จัดลำดับสายตา (Visual Flow) จากบนลงล่างและซ้ายไปขวา</li>
+                <li><strong>Footer:</strong> ส่วนท้าย แสดงข้อมูลสนับสนุน เช่น ข้อมูลติดต่อ, นโยบายความเป็นส่วนตัว, ลิงก์ Social Media</li>
+            </ol>
+        </div>
+
+        <!-- 3. ขั้นตอนการทำต้นแบบ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-pen-ruler"></i> 3. ขั้นตอนการทำต้นแบบ (Prototype)
+            </div>
+            <p class="content">
+                เป็นการจำลองระบบก่อนเขียนโค้ดจริง เพื่อตรวจสอบปัญหา ลดต้นทุน และสื่อสารกับทีม/ลูกค้า:
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>Low-fidelity Wireframe:</strong> ร่างโครงสร้างแบบง่าย (ขาว-ดำ/สีเทา) เน้นตําแหน่งและ User Flow เปรียบเสมือน <em>"แบบแปลนบ้าน"</em></li>
+                <li><strong>High-fidelity Mockup:</strong> ตกแต่งรายละเอียด ใส่สี ฟอนต์ รูปภาพ และกราฟิกจริง เพื่อแสดง UI และบรรยากาศสุดท้าย เปรียบเสมือน <em>"การตกแต่งภายใน"</em></li>
+            </ul>
+
+            <!-- กล่องเปรียบเทียบหรือตัวอย่างโค้ด -->
+            <div class="code-box">
+                <span class="code-comment">// Workflow ขั้นตอนการออกแบบ Prototype</span><br>
+                User Research  -> Low-fidelity Wireframe -> High-fidelity Mockup -> Code Development
+            </div>
+        </div>
+
+        <!-- 4. เทคนิคการออกแบบสมัยใหม่ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-mobile-screen-button"></i> 4. เทคนิคการออกแบบสมัยใหม่ (Modern Design Techniques)
+            </div>
+            
+            <p class="content">
+                <strong>Responsive Design:</strong> การออกแบบให้หน้าเว็บปรับเปลี่ยนขนาดแสดงผลได้อัตโนมัติตามหน้าจออุปกรณ์ (Desktop, Tablet, Mobile) โดยใช้ Flexible Grid, Flexible Images และ CSS Media Queries
+            </p>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> ข้อควรจำ
+                </div>
+                <div class="content">
+                    <strong>Mobile First Design:</strong> แนวคิดการออกแบบที่เริ่มต้นจากหน้าจอมือถือก่อน (Content-First) คัดเลือกเฉพาะฟังก์ชันสำคัญ เพื่อลดปัญหา Feature Bloat และช่วยให้เว็บไซต์โหลดได้เร็วบนสมาร์ตโฟน
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson01.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 1)
+            </a>
+            <a href="lesson03.html" class="nav-button next">
+                บทถัดไป (บทที่ 3) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

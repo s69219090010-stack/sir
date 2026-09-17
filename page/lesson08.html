@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 8 การสร้างฟอร์มและการรับข้อมูล</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson08.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 8</span>
+        <h1>การสร้างฟอร์มและการรับข้อมูล (HTML Forms & Validation)</h1>
+        <hr class="title-line">
+
+        <!-- 1. องค์ประกอบและโครงสร้างของฟอร์ม -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-wpforms"></i> 1. องค์ประกอบและโครงสร้างของฟอร์ม (&lt;form&gt;)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>แท็ก &lt;form&gt;:</strong> ใช้เป็นกล่องครอบองค์ประกอบรับข้อมูลทั้งหมดเพื่อส่งไปยังเซิร์ฟเวอร์</li>
+                <li><strong>แอตทริบิวต์ action:</strong> ระบุ URL หรือไฟล์ปลายทาง (เช่น เซิร์ฟเวอร์/สคริปต์) ที่จะรับข้อมูลไปประมวลผล</li>
+                <li>
+                    <strong>แอตทริบิวต์ method (การส่งข้อมูล):</strong>
+                    <div style="padding-left: 15px; margin-top: 5px;">
+                        • <code>GET</code>: ส่งข้อมูลผ่าน URL ต่อท้ายด้วยข้อความ (Query String) เหมาะกับการค้นหาทั่วไป แต่ไม่ปลอดภัย และมีข้อจำกัดเรื่องขนาดข้อมูล<br>
+                        • <code>POST</code>: แนบข้อมูลไปกับ Body ของ HTTP Request เหมาะกับการส่งข้อมูลสำคัญ (เช่น รหัสผ่าน) หรือข้อมูลที่มีขนาดใหญ่ เพราะมีความปลอดภัยมากกว่า
+                    </div>
+                </li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ดโครงสร้างฟอร์ม -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- ตัวอย่างโครงสร้างการประกาศฟอร์ม --&gt;</span><br>
+                &lt;form action="process.php" method="POST"&gt;<br>
+                &nbsp;&nbsp;<span class="code-comment">&lt;!-- ช่องรับข้อมูลต่างๆ อยู่ที่นี่ --&gt;</span><br>
+                &lt;/form&gt;
+            </div>
+        </div>
+
+        <!-- 2. ประเภทของช่องรับข้อมูล -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-keyboard"></i> 2. ประเภทของช่องรับข้อมูล (Input Types)
+            </div>
+            
+            <div class="content" style="margin-top: 10px;"><strong>กลุ่มรับข้อมูลข้อความ (Text Inputs):</strong></div>
+            <ul class="definition-list content">
+                <li><code>type="text"</code>: ช่องกรอกข้อความทั่วไปแบบบรรทัดเดียว</li>
+                <li><code>type="password"</code>: ช่องกรอกรหัสผ่าน (ซ่อนข้อความด้วยจุดหรือดอกจัน)</li>
+                <li><code>&lt;textarea&gt;</code>: ช่องกรอกข้อความขนาดยาวแบบหลายบรรทัด (เช่น ข้อเสนอแนะ หรือที่อยู่)</li>
+            </ul>
+
+            <div class="content" style="margin-top: 10px;"><strong>กลุ่มตัวเลือก (Selection Controls):</strong></div>
+            <ul class="definition-list content">
+                <li><code>type="radio"</code>: ตัวเลือกแบบเลือกได้เพียง 1 อย่าง ในกลุ่มเดียวกัน (ต้องใช้ <code>name</code> เดียวกัน)</li>
+                <li><code>type="checkbox"</code>: ตัวเลือกที่สามารถ เลือกหลายรายการ หรือไม่เลือกเลยก็ได้</li>
+                <li><code>&lt;select&gt;</code> และ <code>&lt;option&gt;</code>: เมนูรายการแบบดรอปดาวน์ (Dropdown List)</li>
+            </ul>
+        </div>
+
+        <!-- 3. การตรวจสอบความถูกต้องของข้อมูล -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-circle-check"></i> 3. การตรวจสอบความถูกต้องของข้อมูล (Form Validation)
+            </div>
+            
+            <p class="content">
+                ใช้แอตทริบิวต์ของ HTML5 ในการควบคุมและตรวจสอบข้อมูลฝั่งเบราว์เซอร์ก่อนส่งไปยังเซิร์ฟเวอร์:
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>required:</strong> บังคับว่าต้องกรอกข้อมูล หากไม่กรอกจะไม่สามารถกดส่งฟอร์มได้</li>
+                <li><strong>min / max:</strong> กำหนดค่าต่ำสุดและสูงสุดสำหรับช่องข้อมูลที่เป็นตัวเลขหรือวันที่</li>
+                <li><strong>minlength / maxlength:</strong> กำหนดจำนวนตัวอักษรขั้นต่ำและสูงสุดที่ยอมให้กรอก</li>
+                <li><strong>pattern:</strong> ใช้ Regular Expression (RegEx) กำหนดรูปแบบข้อมูลที่ถูกต้อง (เช่น รูปแบบเบอร์โทรศัพท์ หรือรหัสไปรษณีย์)</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ด Validation -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- ตัวอย่างการใช้ HTML5 Form Validation --&gt;</span><br>
+                &lt;input type="text" name="username" required minlength="4" maxlength="20"&gt;<br>
+                &lt;input type="text" name="phone" pattern="[0-9]{10}" placeholder="กรอกเบอร์โทร 10 หลัก"&gt;
+            </div>
+        </div>
+
+        <!-- 4. การป้อนและส่งข้อมูล -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-sliders"></i> 4. การป้อนและส่งข้อมูล (Buttons &amp; UX Enhancements)
+            </div>
+            
+            <ul class="definition-list content">
+                <li><strong>&lt;label&gt; และแอตทริบิวต์ for:</strong> ผูกข้อความอธิบายเข้ากับช่องรับข้อมูล (<code>id</code>) เพื่อให้ผู้ใช้สามารถคลิกที่ข้อความแล้ว Cursor ไปโฟกัสที่ช่องกรอกได้ทันที เพิ่ม UX ให้ใช้งานง่ายขึ้น</li>
+                <li>
+                    <strong>ปุ่มกด (Buttons):</strong>
+                    <div style="padding-left: 15px; margin-top: 5px;">
+                        • <code>type="submit"</code>: ปุ่มส่งข้อมูลในฟอร์มไปยังปลายทาง<br>
+                        • <code>type="reset"</code>: ปุ่มล้างข้อมูลทั้งหมดในฟอร์มกลับเป็นค่าเริ่มต้น
+                    </div>
+                </li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> เทคนิคเพิ่ม UX สำหรับ Label
+                </div>
+                <div class="content">
+                    การจับคู่ <code>&lt;label for="user-email"&gt;</code> ต้องตรงกับ <code>id="user-email"</code> ของช่องรับข้อมูลเสมอ เพื่อให้คลิกที่ข้อความแล้วเมาส์ไปโฟกัสในช่องกรอกได้ทันที
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson06.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 7)
+            </a>
+            <a href="lesson09.html" class="nav-button next">
+                บทถัดไป (บทที่ 9) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

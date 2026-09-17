@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 1 พื้นฐานการพัฒนาเว็บไซต์</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson01.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 1</span>
+        <h1>พื้นฐานการพัฒนาเว็บไซต์</h1>
+        <hr class="title-line">
+
+        <!-- 1. สถาปัตยกรรมและการทำงานของเว็บไซต์ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-regular fa-compass"></i> 1. สถาปัตยกรรมและการทำงานของเว็บไซต์ (Web Infrastructure)
+            </div>
+            
+            <p class="content">
+                <strong>แนวคิด Client-Server:</strong> เว็บไซต์ทำงานผ่านการสื่อสารระหว่าง Client (เครื่องผู้ใช้/เว็บบราวเซอร์) ที่ส่งคำขอ (Request) ไปยัง Server (เครื่องแม่ข่าย) เพื่อประมวลผลและส่งข้อมูล (Response) กลับมาแสดงผล
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>HTTP / HTTPS:</strong> มาตรฐานการสื่อสารข้อมูล โดย HTTPS เพิ่มระบบความปลอดภัยและการเข้ารหัสข้อมูล (Security)</li>
+                <li><strong>IP Address & Domain Name:</strong> IP Address คือหมายเลขประจำเครื่องในระบบเครือข่าย ส่วน Domain Name (เช่น google.com) คือชื่อที่ใช้เรียกแทน IP Address เพื่อให้มนุษย์จดจำได้ง่าย</li>
+            </ul>
+
+            <!-- ตัวอย่างแสดงคำสั่ง / โค้ด -->
+            <div class="code-box">
+                <span class="code-comment">// ตัวอย่างกระบวนการ Request / Response</span><br>
+                Client Request  -> https://www.example.com<br>
+                Server Response -> 200 OK (HTML/CSS/JS Data)
+            </div>
+        </div>
+
+        <!-- 2. การวางโครงสร้างและประสบการณ์ผู้ใช้ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-sitemap"></i> 2. การวางโครงสร้างและประสบการณ์ผู้ใช้ (Web Architecture & UX)
+            </div>
+            <p class="content">
+                <strong>Site Map & Navigation Flow:</strong> การจัดวางผังหน้าเว็บไซต์และเส้นทางการเชื่อมโยงระหว่างหน้าต่างๆ เพื่อให้ผู้ใช้ไม่งง
+            </p>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> ข้อควรจำ
+                </div>
+                <div class="content">
+                    <strong>กฎ 3 คลิก (3-Click Rule):</strong> หลักการออกแบบที่ช่วยให้ผู้ใช้งานสามารถเข้าถึงข้อมูลที่ต้องการได้ภายในไม่เกิน 3 การคลิกจากหน้าแรก
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. การจัดเตรียมเครื่องมือพัฒนาโปรแกรม -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-code"></i> 3. การจัดเตรียมเครื่องมือพัฒนาโปรแกรม (Development Environment Setup)
+            </div>
+            <p class="content">
+                <strong>Visual Studio Code (VS Code):</strong> โปรแกรม Code Editor หลักที่ใช้ในการเขียนโค้ดเว็บไซต์
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>ส่วนขยายแนะนำ (VS Code Extensions):</strong></div>
+            <ol class="number-list content">
+                <li><strong>Live View / Server:</strong> ช่วยจำลองการแสดงผลหน้าเว็บแบบเรียลไทม์ขณะแก้ไขโค้ด</li>
+                <li><strong>Formatting & Syntax Check:</strong> ช่วยจัดระเบียบโครงสร้างโค้ดและตรวจสอบข้อผิดพลาด</li>
+                <li><strong>HTML Tag Automation:</strong> ช่วยเติมแท็กอัตโนมัติเพื่อเพิ่มความเร็วในการเขียนโค้ด</li>
+            </ol>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="#" class="nav-button previous">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า
+            </a>
+            <a href="lesson02.html" class="nav-button next">
+                บทถัดไป (บทที่ 2) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

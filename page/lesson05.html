@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 5 การจัดการข้อความ รูปภาพ มัลติมีเดีย และ Iframe</title>
+    <!-- โหลด Font Sarabun และ FontAwesome ไอคอน -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../css/lesson05.css">
+</head>
+<body>
+
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="top-bar">
+        <a href="../index.html" class="home-button">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลักบทเรียน
+        </a>
+    </div>
+
+    <!-- กล่องเนื้อหาหลัก -->
+    <div class="lesson-card">
+        
+        <span class="chapter-label">บทที่ 5</span>
+        <h1>การจัดการข้อความ รูปภาพ มัลติมีเดีย และ Iframe</h1>
+        <hr class="title-line">
+
+        <!-- 1. การจัดการข้อความระดับสูง -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-font"></i> 1. การจัดการข้อความระดับสูง (Advanced Text Styling)
+            </div>
+            
+            <p class="content">
+                <strong>เป้าหมาย:</strong> สร้าง Visual Hierarchy (ลำดับสายตา) และสื่อสารตัวตนของแบรนด์
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>การปรับแต่งด้วย CSS:</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Color:</strong> กำหนดสีตัวอักษรได้ทั้งชื่อสี, รหัส Hex Code (<code>#FF5733</code>) หรือ RGB เพื่อให้ได้เฉดสีตรงตามต้องการ</li>
+                <li><strong>Font-size:</strong> ควบคุมขนาดข้อความ โดยนิยมใช้หน่วยพิกเซล (px) สำหรับผู้เริ่มต้น (เนื้อหาทั่วไปไม่ควรต่ำกว่า 16px)</li>
+            </ul>
+
+            <div class="content" style="margin-top: 10px;"><strong>Google Fonts (Cloud Font Service):</strong></div>
+            <p class="content">
+                แก้ปัญหาฟอนต์ไม่แสดงผลในเครื่องผู้ใช้ด้วยการดึงฟอนต์จากคลาวด์ของ Google มาแสดงผลแบบ Real-time โดยการเชื่อมต่อไฟล์ HTML ผ่านแท็ก <code>&lt;link&gt;</code> ในส่วน <code>&lt;head&gt;</code> แล้วใช้คำสั่ง <code>font-family</code> ใน CSS เพื่อเรียกชื่อฟอนต์
+            </p>
+
+            <!-- ตัวอย่างโค้ดเรียกใช้ Google Fonts -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- ตัวอย่างการเชื่อมต่อ Google Fonts ใน &lt;head&gt; --&gt;</span><br>
+                &lt;link href="https://fonts.googleapis.com/css2?family=Sarabun&amp;display=swap" rel="stylesheet"&gt;<br><br>
+                <span class="code-comment">/* ตัวอย่างการเรียกใช้งานใน CSS */</span><br>
+                body { font-family: 'Sarabun', sans-serif; font-size: 16px; color: #333333; }
+            </div>
+        </div>
+
+        <!-- 2. การแทรกและจัดการรูปภาพ -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-regular fa-image"></i> 2. การแทรกและจัดการรูปภาพ (&lt;img&gt;)
+            </div>
+            
+            <p class="content">
+                <strong>ลักษณะของแท็ก &lt;img&gt;:</strong> เป็นแท็กเดี่ยว (Empty Tag) ที่ใช้การ "ชี้เป้าหมาย" ผ่านแอตทริบิวต์ <code>src</code> (Source)
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>การระบุที่อยู่ไฟล์ (Path):</strong></div>
+            <ul class="definition-list content">
+                <li><strong>Absolute Path:</strong> อ้างอิง URL เต็มรูปแบบจากเว็บอื่น (ขึ้นต้นด้วย http:// หรือ https://) ข้อเสียคือถ้ารูปต้นทางถูกลบ รูปจะหายทันที</li>
+                <li><strong>Relative Path:</strong> อ้างอิงจากตำแหน่งโฟลเดอร์ในโปรเจกต์ของตัวเอง (เช่น <code>images/coffee.jpg</code>) เป็นมาตรฐานที่ควรใช้</li>
+            </ul>
+
+            <!-- กล่องข้อควรจำ -->
+            <div class="note">
+                <div class="note-title">
+                    <i class="fa-solid fa-circle-info"></i> Image Optimization (ประสิทธิภาพเว็บ)
+                </div>
+                <div class="content">
+                    ต้องบีบอัดและย่อขนาดภาพก่อนใช้งานจริงเสมอ เพื่อป้องกันเว็บโหลดช้า และหลีกเลี่ยงผลกระทบต่อคะแนน SEO รวมถึงเลือกใช้ประเภทไฟล์ให้เหมาะสม เช่น <strong>.jpg</strong> (ภาพถ่าย), <strong>.png</strong> (พื้นหลังโปร่งใส) หรือ <strong>.webp</strong> (ขนาดเล็กพิเศษ)
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. การจัดการวิดีโอและเสียง -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-photo-film"></i> 3. การจัดการวิดีโอและเสียง (&lt;video&gt; &amp; &lt;audio&gt;)
+            </div>
+            
+            <p class="content">
+                <strong>มาตรฐาน HTML5:</strong> สามารถเล่นสื่อมัลติมีเดียได้ในตัวโดยไม่ต้องพึ่งพิงโปรแกรมเสริม (Plugin) อย่าง Flash Player ในอดีต
+            </p>
+
+            <ul class="definition-list content">
+                <li><strong>แท็ก &lt;video&gt;:</strong> ใช้ระบุไฟล์วิดีโอผ่านแอตทริบิวต์ <code>src</code></li>
+                <li><strong>แอตทริบิวต์ controls:</strong> เป็นส่วนสำคัญที่สุดในการเสก "แผงควบคุม" (ปุ่ม Play/Pause, ปรับเสียง, Timeline, ขยายเต็มจอ) เพื่อให้ผู้ใช้งานโต้ตอบได้</li>
+            </ul>
+
+            <!-- ตัวอย่างโค้ด Video -->
+            <div class="code-box">
+                <span class="code-comment">&lt;!-- ตัวอย่างการใช้งานแท็ก Video ใน HTML5 --&gt;</span><br>
+                &lt;video src="videos/presentation.mp4" controls width="100%"&gt;&lt;/video&gt;
+            </div>
+        </div>
+
+        <!-- 4. การใช้ Inline Frame (<iframe>) -->
+        <div class="topic">
+            <div class="topic-title">
+                <i class="fa-solid fa-window-maximize"></i> 4. การใช้ Inline Frame (&lt;iframe&gt;)
+            </div>
+            
+            <p class="content">
+                <strong>หลักการทำงาน:</strong> ทำหน้าที่เหมือนการ "เจาะหน้าต่างกระจก" บนหน้าเว็บ เพื่อดึงเนื้อหาหรือบริการจากเว็บไซต์ภายนอก (Third-party) มาแสดงผล
+            </p>
+
+            <p class="content" style="margin-top: 8px;">
+                <strong>แอตทริบิวต์สำคัญ:</strong> <code>src</code> (URL ปลายทาง), <code>width/height</code> (ขนาดหน้าต่าง), <code>title</code> (คำอธิบายสำหรับ Screen Reader) และ <code>allowfullscreen</code>
+            </p>
+
+            <div class="content" style="margin-top: 10px;"><strong>การประยุกต์ใช้งานจริง (Embed Services):</strong></div>
+            <p class="content">
+                นิยมใช้ฝังบริการระดับโลกเพื่อประหยัดพื้นที่เซิร์ฟเวอร์ของตัวเอง เช่น:
+            </p>
+            <ul class="definition-list content">
+                <li><strong>YouTube Embed:</strong> ฝังคลิปวิดีโอพร้อมแผงควบคุมโดยไม่ต้องอัปโหลดไฟล์วิดีโอขนาดใหญ่ลงเซิร์ฟเวอร์</li>
+                <li><strong>Google Maps Embed:</strong> ฝังแผนที่ Interactive ให้ผู้ใช้สามารถซูม เลื่อน หรือเลิอกระบบนำทาง GPS ได้ทันที</li>
+            </ul>
+        </div>
+
+        <!-- ปุ่มเปลี่ยนบทเรียน -->
+        <div class="navigation">
+            <a href="lesson04.html" class="nav-button next" style="margin-right: auto; color: #333; background: #f7f8fa;">
+                <i class="fa-solid fa-arrow-left"></i> บทก่อนหน้า (บทที่ 4)
+            </a>
+            <a href="lesson06.html" class="nav-button next">
+                บทถัดไป (บทที่ 6) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
